@@ -1,0 +1,100 @@
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.beer-label {
+  height: 66mm;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightGray;
+  display: table-cell;
+  background-size: cover;
+  text-align: right;
+  position: relative;
+}
+.beer-table {
+  display: table;
+  width: 100%;
+}
+.inner-beer-table {
+  display: table;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+.beer-row {
+  display: table-row;
+}
+.beer-label-cell {
+  padding: 0mm;
+  height: 66mm;
+  display: table-cell;
+  margin: auto;
+}
+.beer-label-title-wrapper {
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+.beer-label-text-wrapper {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 1%;
+  height: 56mm;
+  /*spacing: 1mm;*/
+}
+.beer-label-title {
+  background-color: rgba(255, 255, 255, 0.5);
+  font-family: 'Fjord One', serif;
+  font-size: 2em;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+.beer-label-subtitle {
+  background-color: rgba(255, 255, 255, 0.5);
+  font-family: 'Fjord One', serif;
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+.beer-label-text {
+  font-family: 'Fjord One', serif;
+  text-align: left;
+}
+.beer-label-image {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  height: 66mm;
+}
+@media print {
+  @page {
+    size: 210mm 297mm;
+    margin: 5mm;
+  }
+  .hidden-print {
+    display: none;
+  }
+}
+@media screen {
+  .hidden-screen {
+      display: none;
+  }
+  .beer-label {
+      display: table-cell;
+      width: 94mm;
+      height: 66mm;
+  }
+  pre {
+      padding: 0px;
+      font-size: 13px;
+      color: black;
+      background-color: transparent;
+      border: 0px;
+  }
+}

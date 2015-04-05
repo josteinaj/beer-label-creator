@@ -1,0 +1,188 @@
+<!--<a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a>-->
+
+<div class="hidden-print container">
+    <h1 class="hidden-print">Beer label creator</h1>
+    <p>Print this page to get a A4 page of 8 labels.</p>
+    <br/>
+    <form name="label-form" class="form-horizontal">
+        <div class="form-group">
+            <label for="title" class="col-sm-2 control-label">Title:</label>
+            <div class="col-sm-10">
+                <input type="text" name="title" id="title" placeholder="Name of beer (example: 'Donut Stout')" style="width:100%;"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="subtitle" class="col-sm-2 control-label">Subtitle:</label>
+            <div class="col-sm-10">
+                <input type="text" name="subtitle" id="subtitle" placeholder="Small text under beer name (example: '6,3 %')" style="width:100%;"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="hue" class="col-sm-2 control-label">Title font:</label>
+            <div class="col-sm-10">
+                <select name="font" id="font" style="width:100%;">
+                    <option selected="">'Fjord One', serif</option>
+                    <option>"Open Sans", sans-serif</option>
+                    <option>"Lobster", sans-serif</option>
+                    <option>"Droid Sans", sans-serif</option>
+                    <option>"PT Sans", sans-serif</option>
+                    <option>"Lato", sans-serif</option>
+                    <option>Georgia, serif</option>
+                    <option>"Palatino Linotype", "Book Antiqua", Palatino, serif</option>
+                    <option>"Times New Roman", Times, serif</option>
+                    <option>Arial, Helvetica, sans-serif</option>
+                    <option>"Arial Black", Gadget, sans-serif</option>
+                    <option>"Comic Sans MS", cursive, sans-serif</option>
+                    <option>Impact, Charcoal, sans-serif</option>
+                    <option>"Lucida Sans Unicode", "Lucida Grande", sans-serif</option>
+                    <option>Tahoma, Geneva, sans-serif</option>
+                    <option>"Trebuchet MS", Helvetica, sans-serif</option>
+                    <option>Verdana, Geneva, sans-serif</option>
+                    <option>"Courier New", Courier, monospace</option>
+                    <option>"Lucida Console", Monaco, monospace</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="hue" class="col-sm-2 control-label">Title color:</label>
+            <div class="col-sm-10">
+                <input type="number" min="0" max="360" value="0" step="1" name="hue" id="hue" style="width:100px;"/>
+                <input type="number" min="0" max="100" value="100" step="1" name="saturation" id="saturation" style="width:100px;"/>
+                <input type="number" min="0" max="100" value="0" step="1" name="lighting" id="lighting" style="width:100px;"/>
+                <br/>
+                <p>Hue (0-360), Saturation (0%-100%), Brightness (0%-100%)</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="titlebgalpha" class="col-sm-2 control-label">Title background transparency (0.0-1.0):</label>
+            <div class="col-sm-10">
+                <input type="number" min="0.0" max="1.0" value="0.5" step="0.05" name="titlebgalpha" id="titlebgalpha" style="width:100px;"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="image" class="col-sm-2 control-label">Image URL:</label>
+            <div class="col-sm-10">
+                <input type="url" name="image" id="image" value="images/example-label.png" style="width:100%;"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="text" class="col-sm-2 control-label">Description:</label>
+            <div class="col-sm-10">
+                <textarea name="text" id="text" rows="9" cols="30" placeholder="Brewed by / batch number / date / etc."></textarea>
+            </div>
+        </div>
+    </form>
+    
+    <br/>
+    
+    <div style="width: 100%; text-align: center;">
+        <div style="display: inline-block;">
+            <div class="beer-label">
+                <img src="images/example-label.png" class="beer-label-image"/>
+                <div class="beer-label-cell beer-label-title-wrapper">
+                    <p class="beer-label-title"></p>
+                    <p class="beer-label-subtitle"></p>
+                </div>
+                <div class="beer-label-cell beer-label-text-wrapper">
+                    <pre class="beer-label-text"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="beer-table hidden-screen">
+    
+    <div class="beer-row">
+        <div class="beer-label">
+            <img src="images/example-label.png" class="beer-label-image"/>
+            <div class="beer-label-cell beer-label-title-wrapper">
+                <p class="beer-label-title"></p>
+                <p class="beer-label-subtitle"></p>
+            </div>
+            <div class="beer-label-cell beer-label-text-wrapper">
+                <pre class="beer-label-text"></pre>
+            </div>
+        </div>
+        <div class="beer-label">
+            <img src="images/example-label.png" class="beer-label-image"/>
+            <div class="beer-label-cell beer-label-title-wrapper">
+                <p class="beer-label-title"></p>
+                <p class="beer-label-subtitle"></p>
+            </div>
+            <div class="beer-label-cell beer-label-text-wrapper">
+                <pre class="beer-label-text"></pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="beer-row">
+        <div class="beer-label">
+            <img src="images/example-label.png" class="beer-label-image"/>
+            <div class="beer-label-cell beer-label-title-wrapper">
+                <p class="beer-label-title"></p>
+                <p class="beer-label-subtitle"></p>
+            </div>
+            <div class="beer-label-cell beer-label-text-wrapper">
+                <pre class="beer-label-text"></pre>
+            </div>
+        </div>
+        <div class="beer-label">
+            <img src="images/example-label.png" class="beer-label-image"/>
+            <div class="beer-label-cell beer-label-title-wrapper">
+                <p class="beer-label-title"></p>
+                <p class="beer-label-subtitle"></p>
+            </div>
+            <div class="beer-label-cell beer-label-text-wrapper">
+                <pre class="beer-label-text"></pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="beer-row">
+        <div class="beer-label">
+            <img src="images/example-label.png" class="beer-label-image"/>
+            <div class="beer-label-cell beer-label-title-wrapper">
+                <p class="beer-label-title"></p>
+                <p class="beer-label-subtitle"></p>
+            </div>
+            <div class="beer-label-cell beer-label-text-wrapper">
+                <pre class="beer-label-text"></pre>
+            </div>
+        </div>
+        <div class="beer-label">
+            <img src="images/example-label.png" class="beer-label-image"/>
+            <div class="beer-label-cell beer-label-title-wrapper">
+                <p class="beer-label-title"></p>
+                <p class="beer-label-subtitle"></p>
+            </div>
+            <div class="beer-label-cell beer-label-text-wrapper">
+                <pre class="beer-label-text"></pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="beer-row">
+        <div class="beer-label">
+            <img src="images/example-label.png" class="beer-label-image"/>
+            <div class="beer-label-cell beer-label-title-wrapper">
+                <p class="beer-label-title"></p>
+                <p class="beer-label-subtitle"></p>
+            </div>
+            <div class="beer-label-cell beer-label-text-wrapper">
+                <pre class="beer-label-text"></pre>
+            </div>
+        </div>
+        <div class="beer-label">
+            <img src="images/example-label.png" class="beer-label-image"/>
+            <div class="beer-label-cell beer-label-title-wrapper">
+                <p class="beer-label-title"></p>
+                <p class="beer-label-subtitle"></p>
+            </div>
+            <div class="beer-label-cell beer-label-text-wrapper">
+                <pre class="beer-label-text"></pre>
+            </div>
+        </div>
+    </div>
+
+</div>
