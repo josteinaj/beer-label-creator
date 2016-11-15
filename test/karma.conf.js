@@ -31,9 +31,9 @@ module.exports = function(config) {
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js',
-      'bower_components/bower-webfontloader/webfont.js',
       'bower_components/parse-js-sdk/lib/parse.js',
       'bower_components/bootstrap-toggle/js/bootstrap-toggle.min.js',
+      'bower_components/bower-webfontloader/webfont.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
@@ -46,7 +46,7 @@ module.exports = function(config) {
     ],
 
     // web server port
-    port: 8080,
+    port: 8181,
 
     // Start these browsers, currently available:
     // - Chrome

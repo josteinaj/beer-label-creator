@@ -63,63 +63,63 @@ angular.module('beerLabelCreatorApp')
         return result.join('');
     };
     $scope.initColorPicker = function(color) {
-        jQuery('#colorpicker-'+color).colorpicker().on('changeColor', function(ev) {
-            if ($('#'+color+'-transparency').val()+"" !== Math.floor((1 - ev.color.toRGB().a) * 100)+"") {
+        $('#colorpicker-'+color).colorpicker().on('changeColor', function(ev) {
+            if ($('#'+color+'-transparency').val()+'' !== Math.floor((1 - ev.color.toRGB().a) * 100)+'') {
                 $('#'+color+'-transparency').val(Math.floor((1 - ev.color.toRGB().a) * 100));
             }
-            if ($('#'+color+'-color').val().toLowerCase()+"" !== ev.color.toHex().toLowerCase()) {
+            if ($('#'+color+'-color').val().toLowerCase()+'' !== ev.color.toHex().toLowerCase()) {
                 $('#'+color+'-color').val(ev.color.toHex());
             }
             
-            if (color === "background") {
-                $(".beer-label").css(
+            if (color === 'background') {
+                $('.beer-label').css(
                     'background-color',
-                    $("#colorpicker-"+color).colorpicker('getValue')
+                    $('#colorpicker-'+color).colorpicker('getValue')
                 );
-            } else if (color === "title") {
-                $(".beer-label-title").css(
+            } else if (color === 'title') {
+                $('.beer-label-title').css(
                     'color',
-                    $("#colorpicker-"+color).colorpicker('getValue')
+                    $('#colorpicker-'+color).colorpicker('getValue')
                 );
-            } else if (color === "subtitle") {
-                $(".beer-label-subtitle").css(
+            } else if (color === 'subtitle') {
+                $('.beer-label-subtitle').css(
                     'color',
-                    $("#colorpicker-"+color).colorpicker('getValue')
+                    $('#colorpicker-'+color).colorpicker('getValue')
                 );
-            } else if (color === "titleBackground") {
-                $(".beer-label-title, .beer-label-subtitle").css(
+            } else if (color === 'titleBackground') {
+                $('.beer-label-title, .beer-label-subtitle').css(
                     'background-color',
-                    $("#colorpicker-"+color).colorpicker('getValue')
+                    $('#colorpicker-'+color).colorpicker('getValue')
                 );
-            } else if (color === "description") {
-                $(".beer-label-text").css(
+            } else if (color === 'description') {
+                $('.beer-label-text').css(
                     'color',
-                    $("#colorpicker-"+color).colorpicker('getValue')
+                    $('#colorpicker-'+color).colorpicker('getValue')
                 );
-            } else if (color === "descriptionBackground") {
-                $(".beer-label-text, .beer-label-text-wrapper").css(
+            } else if (color === 'descriptionBackground') {
+                $('.beer-label-text, .beer-label-text-wrapper').css(
                     'background-color',
-                    $("#colorpicker-"+color).colorpicker('getValue')
+                    $('#colorpicker-'+color).colorpicker('getValue')
                 );
             }
             
-            console.log($("#colorpicker-"+color).colorpicker('getValue'));
-            $(".beer-label-title, .beer-label-subtitle").css('background-color', $("#colorpicker-"+color).colorpicker('getValue'));
+            console.log($('#colorpicker-'+color).colorpicker('getValue'));
+            $('.beer-label-title, .beer-label-subtitle').css('background-color', $('#colorpicker-'+color).colorpicker('getValue'));
         });
     };
     $scope.initToggleAdvancedColorSelection = function() {
-        $("#toggle-advanced-color-selection").bootstrapToggle().change(function() {
+        $('#toggle-advanced-color-selection').bootstrapToggle().change(function() {
             if ($(this).prop('checked')) {
-                $(".advanced-color-selection").show();
+                $('.advanced-color-selection').show();
             } else {
-                $(".advanced-color-selection").hide();
+                $('.advanced-color-selection').hide();
             }
-        })
-    }
+        });
+    };
     updateColorpickerColor = function(color, newValue) {
         var colorpicker;
         if (newValue && newValue.match(colorRegexp)) {
-            colorpicker = $("#colorpicker-"+color);
+            colorpicker = $('#colorpicker-'+color);
             if ($(colorpicker).children().length > 0) { // if initialized
                 $(colorpicker).colorpicker('setValue', newValue);
             }
@@ -127,29 +127,29 @@ angular.module('beerLabelCreatorApp')
     };
     updateColorpickerTransparency = function(color, newValue) {
         var colorpicker, oldColorpickerValue, newColorpickerValue;
-        if (newValue && (newValue+"").match(alphaRegexp)) {
-            colorpicker = $("#colorpicker-"+color);
+        if (newValue && (newValue+'').match(alphaRegexp)) {
+            colorpicker = $('#colorpicker-'+color);
             if ($(colorpicker).children().length > 0) { // if initialized
                 oldColorpickerValue = $(colorpicker).colorpicker('getValue');
-                newColorpickerValue = oldColorpickerValue.replace(new RegExp('[0-9.]+\\)'), ((100-newValue)/100.)+")");
+                newColorpickerValue = oldColorpickerValue.replace(new RegExp('[0-9.]+\\)'), ((100-newValue)/100.0)+')');
                 $(colorpicker).colorpicker('setValue', newColorpickerValue);
             }
         }
     };
     
     // update colorpicker when editing hex color or transparency value inputs
-    $scope.$watch("form.background.color",                   function(newValue, oldValue) { updateColorpickerColor("background", newValue); });
-    $scope.$watch("form.title.color",                        function(newValue, oldValue) { updateColorpickerColor("title", newValue); });
-    $scope.$watch("form.subtitle.color",                     function(newValue, oldValue) { updateColorpickerColor("subtitle", newValue); });
-    $scope.$watch("form.titleBackground.color",              function(newValue, oldValue) { updateColorpickerColor("titleBackground", newValue); });
-    $scope.$watch("form.description.color",                  function(newValue, oldValue) { updateColorpickerColor("description", newValue); });
-    $scope.$watch("form.descriptionBackground.color",        function(newValue, oldValue) { updateColorpickerColor("descriptionBackground", newValue); });
-    $scope.$watch("form.background.transparency",            function(newValue, oldValue) { updateColorpickerTransparency("background", newValue); });
-    $scope.$watch("form.title.transparency",                 function(newValue, oldValue) { updateColorpickerTransparency("title", newValue); });
-    $scope.$watch("form.subtitle.transparency",              function(newValue, oldValue) { updateColorpickerTransparency("subtitle", newValue); });
-    $scope.$watch("form.titleBackground.transparency",       function(newValue, oldValue) { updateColorpickerTransparency("titleBackground", newValue); });
-    $scope.$watch("form.description.transparency",           function(newValue, oldValue) { updateColorpickerTransparency("description", newValue); });
-    $scope.$watch("form.descriptionBackground.transparency", function(newValue, oldValue) { updateColorpickerTransparency("descriptionBackground", newValue); });
+    $scope.$watch('form.background.color',                   function(newValue) { updateColorpickerColor('background', newValue); });
+    $scope.$watch('form.title.color',                        function(newValue) { updateColorpickerColor('title', newValue); });
+    $scope.$watch('form.subtitle.color',                     function(newValue) { updateColorpickerColor('subtitle', newValue); });
+    $scope.$watch('form.titleBackground.color',              function(newValue) { updateColorpickerColor('titleBackground', newValue); });
+    $scope.$watch('form.description.color',                  function(newValue) { updateColorpickerColor('description', newValue); });
+    $scope.$watch('form.descriptionBackground.color',        function(newValue) { updateColorpickerColor('descriptionBackground', newValue); });
+    $scope.$watch('form.background.transparency',            function(newValue) { updateColorpickerTransparency('background', newValue); });
+    $scope.$watch('form.title.transparency',                 function(newValue) { updateColorpickerTransparency('title', newValue); });
+    $scope.$watch('form.subtitle.transparency',              function(newValue) { updateColorpickerTransparency('subtitle', newValue); });
+    $scope.$watch('form.titleBackground.transparency',       function(newValue) { updateColorpickerTransparency('titleBackground', newValue); });
+    $scope.$watch('form.description.transparency',           function(newValue) { updateColorpickerTransparency('description', newValue); });
+    $scope.$watch('form.descriptionBackground.transparency', function(newValue) { updateColorpickerTransparency('descriptionBackground', newValue); });
   });
 
 
@@ -167,7 +167,7 @@ angular.module('beerLabelCreatorApp')
       }
       elements = document.querySelectorAll(".beer-label-text-wrapper");
       for (i = 0; i < elements.length; i++) {
-          if (text === "") {
+          if (text === '') {
               elements[i].style.visibility = "hidden";
               elements[i].style.padding = "0mm";
           } else {
@@ -177,7 +177,7 @@ angular.module('beerLabelCreatorApp')
       }
       elements = document.querySelectorAll(".beer-label-title-wrapper");
       for (i = 0; i < elements.length; i++) {
-          if (text === "") {
+          if (text === '') {
               elements[i].style.width = "100%";
           } else {
               elements[i].style.width = "70%";
@@ -246,7 +246,7 @@ angular.module('beerLabelCreatorApp')
               }
               console.log(data);
               if (   document.getElementsByClassName('beer-label-image')[0].getAttribute("data-image-resolves") === "true"
-                  && (data['image'] !== "example-label.png" || data['title'] !== "" || data['text'] !== "")
+                  && (data['image'] !== "example-label.png" || data['title'] !== '' || data['text'] !== '')
                   ) {
                   label.save(data).then(function(object) {
                       console.log("saved data.");

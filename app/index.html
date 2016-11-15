@@ -8,7 +8,6 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" media="screen" />
     <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
     <link rel="stylesheet" href="bower_components/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css" media="screen" />
     <link rel="stylesheet" href="bower_components/bootstrap-toggle/css/bootstrap-toggle.min.css" media="screen" />
@@ -50,9 +49,9 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js"></script>
-    <script src="bower_components/bower-webfontloader/webfont.js"></script>
     <script src="bower_components/parse-js-sdk/lib/parse.js"></script>
     <script src="bower_components/bootstrap-toggle/js/bootstrap-toggle.min.js"></script>
+    <script src="bower_components/bower-webfontloader/webfont.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -61,5 +60,21 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <!-- endbuild -->
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+    <script>
+      WebFont.load({
+        google: {
+            families: [
+              'Fjord One',
+              'Open Sans', 'Open Sans Condensed',
+              'Lobster', 'Lobster Two',
+              'Droid Sans', 'Droid Serif',
+              'PT Sans', 'PT Sans Caption', 'PT Sans Narrow',
+              'Lato'
+            ]
+          }
+      });
+    </script>
 </body>
 </html>
