@@ -33,6 +33,7 @@ module.exports = function(config) {
       'bower_components/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js',
       'bower_components/bower-webfontloader/webfont.js',
       'bower_components/parse-js-sdk/lib/parse.js',
+      'bower_components/bootstrap-toggle/js/bootstrap-toggle.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
