@@ -71,7 +71,7 @@
   text-align: left;
   vertical-align: middle;
   overflow: hidden;
-  background-color: lightGrey;
+  background-color: rgba(255, 255, 255, 0);
   max-height: 56mm;
 }
 .beer-label-image {

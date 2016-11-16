@@ -33,7 +33,7 @@ angular
         redirectTo: '/'
       });
   });
-
+/*
 WebFont.load({
   google: {
     families: [
@@ -46,3 +46,4 @@ WebFont.load({
     ]
   }
 });
+*/

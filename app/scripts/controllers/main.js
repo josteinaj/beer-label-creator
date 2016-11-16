@@ -97,14 +97,11 @@ angular.module('beerLabelCreatorApp')
                     $('#colorpicker-'+color).colorpicker('getValue')
                 );
             } else if (color === 'descriptionBackground') {
-                $('.beer-label-text, .beer-label-text-wrapper').css(
+                $('.beer-label-text-wrapper').css(
                     'background-color',
                     $('#colorpicker-'+color).colorpicker('getValue')
                 );
             }
-            
-            console.log($('#colorpicker-'+color).colorpicker('getValue'));
-            $('.beer-label-title, .beer-label-subtitle').css('background-color', $('#colorpicker-'+color).colorpicker('getValue'));
         });
     };
     $scope.initToggleAdvancedColorSelection = function() {
